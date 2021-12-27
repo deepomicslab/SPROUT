@@ -55,20 +55,28 @@ python ./scripts/STORM_SC.py -r tpm.txt -l LR_pairs_add.txt -o /home/wanwang6/sc
 ```
 ### Parameters 
 ```python
-optimizers.embedding(aff, out_dir, left_range = 0, right_range = 30, rep=30, dim=3)
+optimizers.sparsify_embedding(Q, affinitymat, path, percent = per, left_range = 0, right_range = 30, steps = 30, rep = 5, dim = 3)
 ```
 Parameters
+* percent : float, optional, default: 0.2
+  
+  The percentage of edges to be preserved
+  
 * left_range : int, optional, default: 0
 
 * right_range : int, optional, default: 30
 
-    Range for neighbor number
+    The range for neighbor number
     
-* rep : int, optional, default: 30
+* steps : int, optional, default: 30
 
-    Iteration number for each neighbor
+    The iteration number for each neighbor
+    
+* rep : int, optional, default: 5
+
+    The number for sparsification repeats
 
 * dim : int, optional, default: 3
 
-    Embedding dimension of the reconstruction
+    The embedding dimension of the reconstruction
 
