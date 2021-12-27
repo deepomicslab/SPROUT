@@ -50,10 +50,6 @@ optional arguments:
 ```python
 embedding(sparse_A, path, left_range, right_range, steps, dim)
 ```
-* NUM_PER_SPOT : int, optional, default: 10
-
-    Estimated cell number per spot
-  
 * left_range : int, optional, default: 0
 
 * right_range : int, optional, default: 30
