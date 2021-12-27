@@ -24,7 +24,7 @@ python setup.py install
 python ./script/STORM_ST.py -s st-hippo2.tsv -v W.hippo2.tsv -r cnt_data.tsv -m mta_data.tsv -l mouse_lr_pair.txt
 ```
 ```
-usage: STORM_ST.py -s ST_FILE -v W_FILE -r SC_FILE -m META_FILE -l LR_FILE [-p NUM_PER_SPOT] [-a MODE] [-h] 
+usage: STORM_ST.py -s ST_FILE -v W_FILE -r SC_FILE -m META_FILE -l LR_FILE [-o OUT_DIR] [-p NUM_PER_SPOT] [-a MODE] [-h] 
 
 optional arguments:
   -s ST_FILE, --st-file ST_FILE
@@ -40,7 +40,7 @@ optional arguments:
   -l LR_FILE, --lr-file LR_FILE
                         Ligand-receptor pair data
   -o OUT_DIR, --out-dir OUT_DIR
-                        Output file path
+                        Output file path， default is the current working dir
   -p NUM_PER_SPOT, --cell-num-per-spot NUM_PER_SPOT
                         Estimated cell number per spot. Default is 10
   -a MODE, --selection_mode MODE
@@ -50,4 +50,8 @@ optional arguments:
   -h, --help            show this help message and exit                      
 ```
 ## *de novo* reconstruction from the single-cell transcriptome
+```shell
+python ./scripts/STORM_SC.py -r tpm.txt -l LR_pairs_add.txt -o /home/wanwang6/scratch/5.UMAP/1.spatial/1.data/2.HCC/
+
+```
 
