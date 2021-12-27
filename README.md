@@ -28,21 +28,25 @@ usage: STORM_ST.py -s ST_FILE -v W_FILE -r SC_FILE -m META_FILE -l LR_FILE [-p N
 
 optional arguments:
   -s ST_FILE, --st-file ST_FILE
-                        Spatial transcriptome data
+                        Spatial transcriptomics data
   -v W_FILE, --weight-file W_FILE
                         Deconvoluted ST data
   -r SC_FILE, --sc-file SC_FILE
-                        Single cell reference of corresponding ST tissue
+                        Single-cell candidate library of the corresponding ST
+                        tissue
   -m META_FILE, --meta-file META_FILE
-                        Cell type annotation on single-cell reference
+                        Cell-type annotation of the single-cell candidate
+                        library
   -l LR_FILE, --lr-file LR_FILE
                         Ligand-receptor pair data
+  -o OUT_DIR, --out-dir OUT_DIR
+                        Output file path
   -p NUM_PER_SPOT, --cell-num-per-spot NUM_PER_SPOT
                         Estimated cell number per spot. Default is 10
   -a MODE, --selection_mode MODE
                         The choice of either gather cells only from the same
                         type (strict) or from all cells (wild) in the
-                        reference
+                        candidate library
   -h, --help            show this help message and exit                      
 ```
 ## *de novo* reconstruction from the single-cell transcriptome
