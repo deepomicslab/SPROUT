@@ -55,7 +55,7 @@ python ./scripts/STORM_SC.py -r tpm.txt -l LR_pairs_add.txt -o /home/wanwang6/sc
 ```
 ### Parameters 
 ```python
-optimizers.embedding(aff, out_dir, left_range = 0, right_range = 30, rep=30,dim=3)
+optimizers.embedding(aff, out_dir, left_range = 0, right_range = 30, rep=30, dim=3)
 ```
 Parameters
 * left_range : int, optional, default: 0
