@@ -32,11 +32,9 @@ optional arguments:
   -v W_FILE, --weight-file W_FILE
                         Deconvoluted ST data
   -r SC_FILE, --sc-file SC_FILE
-                        Single-cell candidate library of the corresponding ST
-                        tissue
+                        Single-cell candidate library of the corresponding ST tissue
   -m META_FILE, --meta-file META_FILE
-                        Cell-type annotation of the single-cell candidate
-                        library
+                        Cell-type annotation of the single-cell candidate library
   -l LR_FILE, --lr-file LR_FILE
                         Ligand-receptor pair data
   -o OUT_DIR, --out-dir OUT_DIR
@@ -44,12 +42,14 @@ optional arguments:
   -p NUM_PER_SPOT, --cell-num-per-spot NUM_PER_SPOT
                         Estimated cell number per spot. Default is 10
   -a MODE, --selection_mode MODE
-                        The choice of either gather cells primarily from the same
-                        type (strict) or from all cells (wild) in the
-                        candidate library
+                        The choice of either gather cells primarily from the same type (strict) 
+                        or from all cells (wild) in the candidate library
   -h, --help            show this help message and exit                      
 ```
 ### Parameters
+```python
+embedding(sparse_A, path, left_range, right_range, steps, dim)
+```
 * NUM_PER_SPOT : int, optional, default: 10
 
     Estimated cell number per spot
