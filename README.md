@@ -66,7 +66,7 @@ Parameters
 
 * right_range : int, optional, default: 30
 
-    The range for neighbor number
+    The index range for neighbor number, the actual neighbor number is (i+1)*15
     
 * steps : int, optional, default: 30
 
