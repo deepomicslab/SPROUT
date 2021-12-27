@@ -52,6 +52,23 @@ optional arguments:
 ## *de novo* reconstruction from the single-cell transcriptome
 ```shell
 python ./scripts/STORM_SC.py -r tpm.txt -l LR_pairs_add.txt -o /home/wanwang6/scratch/5.UMAP/1.spatial/1.data/2.HCC/
-
 ```
+### parameters 
+```python
+embedding(aff, out_dir, left_range = 0, right_range = 30, rep=30,dim=3)
+```
+parameters
+* left_range : int, optional, default: 0
+* 
+* right_range : int, optional, default: 30
+* 
+    Range for neighbor number
+    
+* rep : int, optional, default: 30
+* 
+    Iteration number for each neighbor
+
+* dim : int, optional, default: 3
+* 
+    Embedding dimension of the reconstruction
 
