@@ -14,7 +14,7 @@ A software package restores the spatial structure from single-cell transcriptome
 pip install STORM-sc
 ```
 # Usage
-## With coupling spatial trasncriptomics data
+## With coupling spatial transcriptomics data
 ```shell
 python STORM_ST.py -s st-hippo2.tsv -v W.hippo2.tsv -r cnt_data.tsv -m mta_data.tsv -l mouse_lr_pair.txt
 ```
@@ -40,3 +40,5 @@ optional arguments:
                         reference
   -h, --help            show this help message and exit                      
 ```
+## *de novo* reconstruction from the single-cell transcriptome
+
