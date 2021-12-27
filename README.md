@@ -18,8 +18,8 @@ pip install STORM-sc
 ```shell
 python STORM_ST.py -s st-hippo2.tsv -v W.hippo2.tsv -r cnt_data.tsv -m mta_data.tsv -l mouse_lr_pair.txt
 ```
-usage: STORM_ST.py -s ST_FILE -v W_FILE -r SC_FILE -m META_FILE -l
-                   LR_FILE [-p NUM_PER_SPOT] [-a MODE] [-h] 
+```
+usage: STORM_ST.py -s ST_FILE -v W_FILE -r SC_FILE -m META_FILE -l LR_FILE [-p NUM_PER_SPOT] [-a MODE] [-h] 
 
 optional arguments:
   -s ST_FILE, --st-file ST_FILE
@@ -39,3 +39,4 @@ optional arguments:
                         type (strict) or from all cells (wild) in the
                         reference
   -h, --help            show this help message and exit                      
+```
