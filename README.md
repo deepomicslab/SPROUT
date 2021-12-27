@@ -13,6 +13,11 @@ A software package restores the spatial structure from single-cell transcriptome
 ```shell
 pip install STORM-sc
 ```
+## Installation from source code
+```shell
+cd STORM
+python setup.py install
+```
 # Usage
 ## Reconstruction utilizing Single-cell transcriptome coupled with spatial transcriptomics data
 ```shell
