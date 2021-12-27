@@ -21,7 +21,7 @@ python setup.py install
 # Usage
 ## Reconstruction utilizing Single-cell transcriptome coupled with spatial transcriptomics data
 ```shell
-python STORM_ST.py -s st-hippo2.tsv -v W.hippo2.tsv -r cnt_data.tsv -m mta_data.tsv -l mouse_lr_pair.txt
+python ./script/STORM_ST.py -s st-hippo2.tsv -v W.hippo2.tsv -r cnt_data.tsv -m mta_data.tsv -l mouse_lr_pair.txt
 ```
 ```
 usage: STORM_ST.py -s ST_FILE -v W_FILE -r SC_FILE -m META_FILE -l LR_FILE [-p NUM_PER_SPOT] [-a MODE] [-h] 
