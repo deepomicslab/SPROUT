@@ -59,16 +59,16 @@ embedding(aff, out_dir, left_range = 0, right_range = 30, rep=30,dim=3)
 ```
 parameters
 * left_range : int, optional, default: 0
-* 
+
 * right_range : int, optional, default: 30
-* 
+
     Range for neighbor number
     
 * rep : int, optional, default: 30
-* 
+
     Iteration number for each neighbor
 
 * dim : int, optional, default: 3
-* 
+
     Embedding dimension of the reconstruction
 
