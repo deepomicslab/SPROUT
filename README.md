@@ -9,10 +9,6 @@ A software package restores the spatial structure from single-cell transcriptome
 * loess
 * lshashpy3
 # Installation
-## Installation with pip
-```shell
-pip install STORM-sc
-```
 ## Installation from the source code
 ```shell
 cd STORM
