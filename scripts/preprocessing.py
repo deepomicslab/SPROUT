@@ -16,18 +16,24 @@ def pear(D,D_re):
     return tmp[0,1]  
     
 def randomize(mat):
-    m = mat.shape[0]
-    n = mat.shape[1]
+    [m,n] = mat.shape
+    # m - spot number
+    # n - cell type number
     for i in range(m):
         for j in range(n):
+            # loop through each entry
             tmp = mat.iloc[i,j]
             if tmp!=0:
                 #print(tmp)
                 c = floor(tmp)
-                d = ceil(tmp)
-                #print(c,d)
-                new = np.random.choice([c,d], p=[d-tmp,tmp-c])
-                mat.iloc[i,j] = new
+                # if entry is integer, pass
+                if c == tmp:
+                    continue
+                else:  
+                    d = ceil(tmp)
+                    #print(c,d)
+                    new = np.random.choice([c,d], p=[d-tmp,tmp-c])
+                    mat.iloc[i,j] = new
 
 def data_clean(sc_exp, st_exp):
     # cell x genes
@@ -67,11 +73,14 @@ def lr_shared_top_k_gene(sort_reg_var, lr_df, k = 3000, keep_lr_per = 0.8):
     lr_share_genes = list(set(lr_df[0]).union(set(lr_df[1])).intersection(set(genes)))
     # keep top lr genes
     lr_var = sort_reg_var.loc[lr_share_genes]
-    take_num = int(len(lr_var) * 0.8)
+    take_num = int(len(lr_var) * keep_lr_per)
+    p = "{:.0%}".format(keep_lr_per)
+    print('Given the user-defined parameter keep_lr_per, STORM kept %s, that is, %d of highly variable LR genes.'%(p,take_num))
     a = lr_var.sort_values(by = 0, ascending=False).iloc[0:take_num].index.tolist()
     # combine with top k feature genes
     feature_genes = sort_reg_var.iloc[0:k].index.tolist()
     lr_feature_genes = list(set(feature_genes + a))
+    print('STORM selects %d feature genes.'%(len(lr_feature_genes)))
     return lr_feature_genes
 
 def norm_center(data):
@@ -189,22 +198,31 @@ def replace_cell(sc_exp, st_exp, meta_df, tp_lsh, all_lsh, init_spot_cell_dict, 
         new_picked_index[i].extend(final_cell_id)
     return spot_cor, new_picked_index
 
-def sc_agg(weight, st_exp, meta_df, exp, lr_df, num_per_spot, input_mode, path):
+def sc_agg(weight_orig, st_exp, meta_df, exp, lr_df, num_per_spot, input_mode, path):
+    # copy from original mat
+    weight = weight_orig.reset_index()
     del weight[weight.columns[0]]
+    # eliminating smaller num
     weight[weight<0.001]=0
+    # estimated cell number per spot (can be fractional)
     num = weight * num_per_spot
+    # randomize to obtain integer cell-type number per spot
     randomize(num)
-    # filtering
+    num.to_csv(path + 'cell_type_num_per_spot.csv', index = True, header= True, sep = ',')
+    # Filtering
+    # 1. keep shared and expressed genes of sc and st data
+    print('%d genes in spatial data, %d genes in single-cell data.'%(st_exp.shape[1],exp.shape[1]))
     filtered_sc, filtered_st = data_clean(exp, st_exp)
+    print('%d shared and expressed genes has been kept.'%(filtered_sc.shape[1]))
+    # 2. select feature genes
     sort_genes = feature_sort(filtered_sc, degree = 2, span = 0.3)
     lr_feature_genes = lr_shared_top_k_gene(sort_genes, lr_df, k = 3000, keep_lr_per = 0.8)
     # normalization
     new_sc_exp = norm_center(filtered_sc.loc[:,lr_feature_genes]) 
-    new_st_exp = pd.DataFrame(np.array(norm_center(filtered_st.loc[:,lr_feature_genes])))
-    print('ST and SC share',new_st_exp.shape[1],'genes.')
+    #new_st_exp = pd.DataFrame(np.array(norm_center(filtered_st.loc[:,lr_feature_genes])))
+    new_st_exp = norm_center(filtered_st.loc[:,lr_feature_genes])
     # initialization
     spot_cell_dict, correlation = init_solution(new_st_exp,new_sc_exp,num,meta_df)
-
     print('initial solution:',min(correlation), np.mean(correlation), max(correlation))
 
     num_nerighbor = 200
