@@ -1,6 +1,5 @@
 import argparse
 import os
-from turtle import st
 import pandas as pd
 import numpy as np
 import umap
