@@ -125,11 +125,8 @@ def pass_adj_st_to_sc(spatial_dis,picked_sc_meta):
         sc_spot_neighbor = np.vstack([sc_spot_neighbor, row_m])
     return sc_spot_neighbor
 
-def dig_hole_spatial_info(st_exp, picked_sc_meta,st_coord='no', r = 2):
+def dig_hole_spatial_info(st_coord, picked_sc_meta, r = 2):
     # r stands for within how many unit lengths to consider as the neighbor.
-    if st_coord == 'no':
-        y = pd.DataFrame(st_exp.index)[0]
-        st_coord = pd.DataFrame(y.str.split('x',1).tolist(), columns = ['x','y']).astype(float).round()
     all_x = np.sort(list(set(st_coord['x'])))
     unit_len = all_x[1] - all_x[0]
     # broadcast nonadjacency to sc from spatial
