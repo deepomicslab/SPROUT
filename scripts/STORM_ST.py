@@ -33,7 +33,7 @@ lr_df = pd.read_csv(args.lr_file,sep='\t',header=None )
 print('file loaded')
 
 if args.st_coord is not None:
-    st_coord = st_coord = pd.read_csv(args.st_coord,sep='\t',header=0, index_col = 0)
+    st_coord = pd.read_csv(args.st_coord,sep='\t',header=0, index_col = 0)
     st_coord.columns = ['x','y']
 else:
     y = pd.DataFrame(st_exp.index)[0]
