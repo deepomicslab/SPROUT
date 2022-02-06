@@ -66,7 +66,7 @@ embedding(sparse_A, path, left_range, right_range, steps, dim)
 | :---: | :---: | :---: | :---: | :---: |
 | Spot 1 | 0 | 2 | ... | 5|
 | Spot 2 | 1 | 30 | ... | 0|
-| Spot ... | 0 | 0 | ... | 60|
+| Spot ... | ... | ... | ... | ...|
 | Spot m | 30 | 0 | ... | 20|
 
 2. Cell-type deconvoluted spatial matrix - spot x cell-type
@@ -75,17 +75,17 @@ embedding(sparse_A, path, left_range, right_range, steps, dim)
 | :---: | :---: | :---: | :---: | :---: |
 | Spot 1 | 0 | 0.2 | ... | 0.001|
 | Spot 2 | 0.6 | 0.13 | ... | 0|
-| Spot ... | 0 | 0 | ... | 0.146|
+| Spot ... | ... | ... | ... | ...|
 | Spot m | 0.12 | 0 | ... | 0.13|
 
-3. Spatial coordinates - spot x cell-type
+3. Spatial coordinates - spot x axis
 
-|  | Type 1 | Type 2 | ... | Type c|
-| :---: | :---: | :---: | :---: | :---: |
-| Spot 1 | 0 | 0.2 | ... | 0.001|
-| Spot 2 | 0.6 | 0.13 | ... | 0|
-| Spot ... | 0 | 0 | ... | 0.146|
-| Spot m | 0.12 | 0 | ... | 0.13|
+|  | x | y | 
+| :---: | :---: | :---: |
+| Spot 1 | 0 | 16 | 
+| Spot 2 | 50 | 102 |
+| Spot ... | ...| ... |
+| Spot m | 3 | 43 |
 ## *de novo* reconstruction from the single-cell transcriptome
 ```shell
 python ./scripts/STORM_SC.py -r tpm.txt -l LR_pairs_add.txt -o /home/wanwang6/scratch/5.UMAP/1.spatial/1.data/2.HCC/
