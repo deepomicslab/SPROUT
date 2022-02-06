@@ -17,7 +17,7 @@ python setup.py install
 # Usages
 ## Reconstruction utilizing single-cell transcriptome coupled with spatial transcriptomics data
 ```shell
-python ./script/STORM_ST.py -s st-hippo2.tsv -v W.hippo2.tsv -r cnt_data.tsv -m mta_data.tsv -l mouse_lr_pair.txt
+python ./script/STORM_ST.py -s spatial_exp.tsv -v spatial_decon.tsv -r sc_exp.tsv -m sc_meta.tsv -l lr_pair.txt
 ```
 ```
 usage: STORM_ST.py -s ST_FILE -v W_FILE -r SC_FILE -m META_FILE -l LR_FILE [-o OUT_DIR] [-p NUM_PER_SPOT] [-a MODE] [-h] 
@@ -59,7 +59,33 @@ embedding(sparse_A, path, left_range, right_range, steps, dim)
 * dim : int, optional, default: 2
 
     The embedding dimension of the reconstruction
+### Input file format
+1. Spatial expression matrix - spot x gene
 
+|  | Gene 1 | Gene 2 | ... | Gene n|
+| :---: | :---: | :---: | :---: | :---: |
+| Spot 1 | 0 | 2 | ... | 5|
+| Spot 2 | 1 | 30 | ... | 0|
+| Spot ... | 0 | 0 | ... | 60|
+| Spot m | 30 | 0 | ... | 20|
+
+2. Cell-type deconvoluted spatial matrix - spot x cell-type
+
+|  | Type 1 | Type 2 | ... | Type c|
+| :---: | :---: | :---: | :---: | :---: |
+| Spot 1 | 0 | 0.2 | ... | 0.001|
+| Spot 2 | 0.6 | 0.13 | ... | 0|
+| Spot ... | 0 | 0 | ... | 0.146|
+| Spot m | 0.12 | 0 | ... | 0.13|
+
+3. Spatial coordinates - spot x cell-type
+
+|  | Type 1 | Type 2 | ... | Type c|
+| :---: | :---: | :---: | :---: | :---: |
+| Spot 1 | 0 | 0.2 | ... | 0.001|
+| Spot 2 | 0.6 | 0.13 | ... | 0|
+| Spot ... | 0 | 0 | ... | 0.146|
+| Spot m | 0.12 | 0 | ... | 0.13|
 ## *de novo* reconstruction from the single-cell transcriptome
 ```shell
 python ./scripts/STORM_SC.py -r tpm.txt -l LR_pairs_add.txt -o /home/wanwang6/scratch/5.UMAP/1.spatial/1.data/2.HCC/
