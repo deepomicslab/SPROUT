@@ -249,9 +249,7 @@ def sc_agg(weight_orig, st_exp, meta_df, exp, lr_df, num_per_spot, input_mode, p
         tmp[1] = key
         picked_index_df = picked_index_df.append(tmp)
     # single-cell aggregate
-    sc_imitator = pd.DataFrame()
-    for index, row in picked_index_df.iterrows():
-        sc_imitator = sc_imitator.append(pd.DataFrame(filtered_sc.loc[row[0]]).T)
+    sc_imitator = filtered_sc.loc[picked_index_df[0].tolist()]
     sc_imitator.to_csv(path + 'sc_agg.txt',index = True, header= True, sep = '\t')
     picked_index_df.to_csv(path + 'sc_agg_index.txt',index = False, header= False, sep = '\t')
     pd.DataFrame(correlation).to_csv(path + 'init_cor.txt')
