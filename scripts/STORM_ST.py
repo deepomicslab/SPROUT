@@ -97,8 +97,8 @@ print('Single-cell aggregates selection completed.')
 exp_T = sc_imitator.T
 affinitymat = optimizers.calculate_affinity_mat(lr_df, exp_T)
 ans, sc_spot_neighbor = optimizers.dig_hole_spatial_info(st_coord, picked_index_df, r = 2)
-#pd.DataFrame(ans).to_csv(args.out_dir + 'hipp_ans.csv')
-#pd.DataFrame(sc_spot_neighbor).to_csv(args.out_dir + 'hipp_sc_neighbor.csv')
+#pd.DataFrame(ans).to_csv(path + 'hipp_ans.csv')
+#pd.DataFrame(sc_spot_neighbor).to_csv(path + 'hipp_sc_neighbor.csv')
 sparse_A = affinitymat * np.array(sc_spot_neighbor)
 sparse_A[sparse_A==0] = 0.1
 np.fill_diagonal(sparse_A,1)
