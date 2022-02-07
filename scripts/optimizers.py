@@ -127,7 +127,7 @@ def pass_adj_st_to_sc(spatial_dis,picked_sc_meta):
 
 def dig_hole_spatial_info(st_coord, picked_sc_meta, r = 2):
     # r stands for within how many unit lengths to consider as the neighbor.
-    all_x = np.sort(list(set(st_coord['x'])))
+    all_x = np.sort(list(set(st_coord.iloc[:,0])))
     unit_len = all_x[1] - all_x[0]
     # broadcast nonadjacency to sc from spatial
     spatial_dis_mat = distance_matrix(st_coord,st_coord)
