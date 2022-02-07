@@ -60,7 +60,6 @@ def embedding(sparse_A, ans, path, verbose = True, left_range = 0, right_range =
     #D = csr_matrix(aff) too less neighbor will occur
     del mask
     max_shape = 0
-    print('start embedding')
     if verbose == True:
     # save all reconstructed result
         for i in range(int(left_range),int(right_range)):
@@ -111,5 +110,6 @@ steps = 30
 # The number for sparsification repeats
 dim = 2
 # The percentage of edges to be preserved
+print('Start embedding')
 coord = embedding(sparse_A, ans, path, left_range, right_range, steps, dim)
 print('Finished!')
