@@ -100,3 +100,6 @@ Parameters
 
     The embedding dimension of the reconstruction
 
+### Input file format
+* **Single-cell RNA Sequencing Count Data**
+  * `.tsv` file with genes as rows and cells as columns
