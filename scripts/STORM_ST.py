@@ -22,6 +22,9 @@ parser.add_argument('-a','--selection_mode', dest='mode', default='strict', help
 args = parser.parse_args()
 if args.out_dir is not None:
     path = args.out_dir + '/'
+    if not os.path.exists(path):
+        os.makedirs(path)
+
 else:
     path = os.getcwd() + '/'
 
