@@ -1,6 +1,7 @@
 # STORM
-The software implementation of the method in the paper
+The software implementation of the method in 
 [STORM: spectral sparsification helps restore the spatial structure at single-cell resolution](https://www.biorxiv.org/content/10.1101/2022.01.25.477389v1).
+
 A software package restores the spatial structure from single-cell transcriptome with spectral graph sparsification.
 
 # Pre-requirements
@@ -15,7 +16,7 @@ cd STORM-main
 python setup.py install
 ```
 # Usages
-## Reconstruction utilizing single-cell transcriptome coupled with spatial transcriptomics data
+## 1. Reconstruction utilizing single-cell transcriptome coupled with spatial transcriptomics data
 ```shell
 python ./script/STORM_ST.py -s spatial_exp.tsv -v spatial_decon.tsv -r sc_exp.tsv -m sc_meta.tsv -l lr_pair.txt
 ```
@@ -61,6 +62,7 @@ embedding(sparse_A, path, left_range, right_range, steps, dim)
 * dim : int, optional, default: 2
 
     The embedding dimension of the reconstruction
+    
 ### Input file format
 * **Spatial Transcriptomics (ST) Count Data**
   * `.tsv` file with spots as rows and genes as columns
@@ -91,7 +93,7 @@ Start to select single-cell aggregates...
 - Cell num per spot is 10, mode as strict.
 - 19738 genes in spatial data, 19738 genes in single-cell data.
 - 14210 shared and expressed genes has been kept.
-- Given the user-defined parameter keep_lr_per, STORM kept 80%, that is, 721 of highly variable LR genes.
+- Given the user-defined parameter keep_lr_per, STORM kept 80%, that is, 721 highly variable LR genes.
 - STORM selects 3472 feature genes.
 initial solution: 0.021963083441482775 0.4169362767129037 0.9069221853765786
 swapped solution: 0.045146409164253054 0.4890899710706522 0.9419340778225115
@@ -101,7 +103,7 @@ Start embedding...
 
 ```
 
-## *de novo* reconstruction from the single-cell transcriptome
+## 2. *de novo* reconstruction from the single-cell transcriptome
 ```shell
 python ./scripts/STORM_SC.py -r tpm.txt -l LR_pairs_add.txt -o /home/wanwang6/scratch/5.UMAP/1.spatial/1.data/2.HCC/
 ```
