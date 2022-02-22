@@ -211,9 +211,9 @@ def sc_agg(weight_orig, st_exp, meta_df, exp, lr_df, num_per_spot, input_mode, p
     num.to_csv(path + 'cell_type_num_per_spot.csv', index = True, header= True, sep = ',')
     # Filtering
     # 1. keep shared and expressed genes of sc and st data
-    print('%d genes in spatial data, %d genes in single-cell data.'%(st_exp.shape[1],exp.shape[1]))
+    print('- %d genes in spatial data, %d genes in single-cell data.'%(st_exp.shape[1],exp.shape[1]))
     filtered_sc, filtered_st = data_clean(exp, st_exp)
-    print('%d shared and expressed genes has been kept.'%(filtered_sc.shape[1]))
+    print('- %d shared and expressed genes has been kept.'%(filtered_sc.shape[1]))
     # 2. select feature genes
     sort_genes = feature_sort(filtered_sc, degree = 2, span = 0.3)
     lr_feature_genes = lr_shared_top_k_gene(sort_genes, lr_df, k = 3000, keep_lr_per = 0.8)
