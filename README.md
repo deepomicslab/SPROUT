@@ -90,7 +90,7 @@ file loaded.
 Cell type in weight matrix is unequal to single-cell meta file.
 
 Start to select single-cell aggregates...
-- Cell num per spot is 10, mode as strict.
+- Cell num per spot is 10, mode set as strict.
 - 19738 genes in spatial data, 19738 genes in single-cell data.
 - 14210 shared and expressed genes has been kept.
 - Given the user-defined parameter keep_lr_per, STORM kept 80%, that is, 721 highly variable LR genes.
@@ -105,7 +105,7 @@ Start embedding...
 
 ## 2. *de novo* reconstruction from the single-cell transcriptome
 ```shell
-python ./scripts/STORM_SC.py -r tpm.txt -l LR_pairs_add.txt -o /home/wanwang6/scratch/5.UMAP/1.spatial/1.data/2.HCC/
+python ./scripts/STORM_SC.py -r sc_exp.tsv -l lr_pair.txt
 ```
 ### Parameters 
 ```python
@@ -137,3 +137,14 @@ Parameters
 ### Input file format
 * **Single-cell RNA Sequencing Count Data**
   * `.tsv` file with genes as rows and cells as columns
+
+### Reproducing The heart Analysis
+#### 1. Downloading the data
+The heart dataset we used in the paper is downloaded from [Developmental_heart_filtered_scRNA-seq_and_meta_data.zip](https://data.mendeley.com/datasets/mbvhhf8m62/2/files/33fb42ae-7b40-4a70-b61d-676f44d68d4c).
+- Developmental_heart_filtered_scRNA-seq_and_meta_data.zip
+  - all_cells_count_matrix_filtered.tsv
+  - all_cells_meta_data_filtered.tsv
+#### 2. Run the analysis
+```shell
+python ./STORM-main/scripts/STORM_SC.py -r all_cells_count_matrix_filtered.tsv -l ./STORM-main/LR/human_LR_pairs.txt
+```
