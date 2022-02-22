@@ -90,6 +90,12 @@ Start to select single-cell aggregates.
 Cell num per spot is: 10, mode as strict.
 19738 genes in spatial data, 19738 genes in single-cell data.
 14210 shared and expressed genes has been kept.
+Given the user-defined parameter keep_lr_per, STORM kept 80%, that is, 721 of highly variable LR genes.
+STORM selects 3472 feature genes.
+initial solution: 0.021963083441482775 0.4169362767129037 0.9069221853765786
+swapped solution: 0.045146409164253054 0.4890899710706522 0.9419340778225115
+Single-cell aggregates selection completed.
+Start embedding
 
 ```
 
