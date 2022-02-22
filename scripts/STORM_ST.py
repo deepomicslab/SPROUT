@@ -92,7 +92,7 @@ def embedding(sparse_A, ans, path, verbose = True, left_range = 0, right_range =
     print('Reached a correlation in shape at:', max_shape)
     return best_in_shape
 print('\n')
-print('Start to select single-cell aggregates.')
+print('Start to select single-cell aggregates...')
 print('- Cell num per spot is: %d, mode as %s.'%(args.num_per_spot,args.mode))
 print('- Selecting...')
 sc_imitator, picked_index_df = preprocessing.sc_agg(weight, st_exp, meta_df, exp, lr_df, args.num_per_spot, args.mode, path)
@@ -115,6 +115,6 @@ steps = 30
 # The number for sparsification repeats
 dim = 2
 # The percentage of edges to be preserved
-print('Start embedding.')
+print('Start embedding...')
 coord = embedding(sparse_A, ans, path, left_range, right_range, steps, dim)
 print('Finished!')
