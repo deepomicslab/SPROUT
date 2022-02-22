@@ -1,17 +1,16 @@
 # STORM
+The software implementation of the method in the paper [](https://www.biorxiv.org/content/10.1101/2022.01.25.477389v1)
 A software package restores the spatial structure from single-cell transcriptome with spectral graph sparsification.
+
 # Pre-requirements
-* python3
-* numpy
-* pandas
-* scipy
-* umap-learn
-* loess
-* lshashpy3
+* python3, numpy, pandas, scipy
+* umap-learn, loess, lshashpy3
 # Installation
 ## Installation from the source code
 ```shell
-cd STORM
+wget https://github.com/deepomicslab/STORM/archive/refs/heads/main.zip
+unzip main.zip
+cd STORM-main
 python setup.py install
 ```
 # Usages
