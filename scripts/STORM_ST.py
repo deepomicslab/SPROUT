@@ -91,12 +91,13 @@ def embedding(sparse_A, ans, path, verbose = True, left_range = 0, right_range =
     pd.DataFrame(best_in_shape).to_csv(path + 'coord_best_in_shape.csv',index = False, header= False, sep = ',')
     print('Reached a correlation in shape at:', max_shape)
     return best_in_shape
-
+print('\n')
 print('Start to select single-cell aggregates.')
 print('- Cell num per spot is: %d, mode as %s.'%(args.num_per_spot,args.mode))
 print('- Selecting...')
 sc_imitator, picked_index_df = preprocessing.sc_agg(weight, st_exp, meta_df, exp, lr_df, args.num_per_spot, args.mode, path)
 print('Single-cell aggregates selection completed.')
+print('\n')
 exp_T = sc_imitator.T
 affinitymat = optimizers.calculate_affinity_mat(lr_df, exp_T)
 ans, sc_spot_neighbor = optimizers.dig_hole_spatial_info(st_coord, picked_index_df, r = 2)
