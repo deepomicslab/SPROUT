@@ -73,8 +73,14 @@ embedding(sparse_A, path, left_range, right_range, steps, dim)
 
 ### Reproducing The PDAC Analysis
 #### 1. Downloading the data
-The data we used in the paper is downloaded from [GSE111672](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE111672), the processed data is deposited in [Google drive](https://drive.google.com/file/d/1r4hiv9z0HgmnXNRyYHk7FMg69hhFL579/view?usp=sharing)
-```shell
+The data we used in the paper is downloaded from [GSE111672](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE111672), the processed data is deposited in [Google drive](https://drive.google.com/file/d/1r4hiv9z0HgmnXNRyYHk7FMg69hhFL579/view?usp=sharing).
+- ST.zip
+  - spatial_exp.tsv 
+  - spatial_decon.tsv
+  - sc_exp.tsv
+  - sc_meta.tsv
+#### 2. Run the analysis
+```console
 python ./STORM-main/scripts/STORM_ST.py -s spatial_exp.tsv -v spatial_decon.tsv -r sc_exp.tsv -m sc_meta.tsv -l ./STORM-main/LR/human_LR_pairs.txt
 file loaded
 Cell type in weight matrix is unequal to single-cell meta file.
