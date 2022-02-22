@@ -88,7 +88,7 @@ file loaded.
 Cell type in weight matrix is unequal to single-cell meta file.
 
 Start to select single-cell aggregates...
-- Cell num per spot is: 10, mode as strict.
+- Cell num per spot is 10, mode as strict.
 - 19738 genes in spatial data, 19738 genes in single-cell data.
 - 14210 shared and expressed genes has been kept.
 - Given the user-defined parameter keep_lr_per, STORM kept 80%, that is, 721 of highly variable LR genes.
