@@ -20,11 +20,13 @@ python setup.py install
 python ./script/STORM_ST.py -s spatial_exp.tsv -v spatial_decon.tsv -r sc_exp.tsv -m sc_meta.tsv -l lr_pair.txt
 ```
 ```
-usage: STORM_ST.py -s ST_FILE -v W_FILE -r SC_FILE -m META_FILE -l LR_FILE [-o OUT_DIR] [-p NUM_PER_SPOT] [-a MODE] [-h] 
+usage: STORM_ST.py -s ST_FILE [-c ST_COORD] -v W_FILE -r SC_FILE -m META_FILE -l LR_FILE [-o OUT_DIR] [-p NUM_PER_SPOT] [-a MODE] [-h] 
 
 optional arguments:
   -s ST_FILE, --st-file ST_FILE
                         Spatial transcriptomics data
+  -c ST_COORD, --st-coordinate ST_COORD
+                        Spatial coordinates of the spatial transcriptomics data
   -v W_FILE, --weight-file W_FILE
                         Deconvoluted ST data
   -r SC_FILE, --sc-file SC_FILE
