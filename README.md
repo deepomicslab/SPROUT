@@ -80,8 +80,10 @@ The data we used in the paper is downloaded from [GSE111672](https://www.ncbi.nl
   - sc_exp.tsv
   - sc_meta.tsv
 #### 2. Run the analysis
-```console
+```shell
 python ./STORM-main/scripts/STORM_ST.py -s spatial_exp.tsv -v spatial_decon.tsv -r sc_exp.tsv -m sc_meta.tsv -l ./STORM-main/LR/human_LR_pairs.txt
+```
+```console
 file loaded
 Cell type in weight matrix is unequal to single-cell meta file.
 Start to select single-cell aggregates.
