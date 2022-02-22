@@ -75,12 +75,12 @@ def lr_shared_top_k_gene(sort_reg_var, lr_df, k = 3000, keep_lr_per = 0.8):
     lr_var = sort_reg_var.loc[lr_share_genes]
     take_num = int(len(lr_var) * keep_lr_per)
     p = "{:.0%}".format(keep_lr_per)
-    print('Given the user-defined parameter keep_lr_per, STORM kept %s, that is, %d of highly variable LR genes.'%(p,take_num))
+    print('- Given the user-defined parameter keep_lr_per, STORM kept %s, that is, %d of highly variable LR genes.'%(p,take_num))
     a = lr_var.sort_values(by = 0, ascending=False).iloc[0:take_num].index.tolist()
     # combine with top k feature genes
     feature_genes = sort_reg_var.iloc[0:k].index.tolist()
     lr_feature_genes = list(set(feature_genes + a))
-    print('STORM selects %d feature genes.'%(len(lr_feature_genes)))
+    print('- STORM selects %d feature genes.'%(len(lr_feature_genes)))
     return lr_feature_genes
 
 def norm_center(data):
