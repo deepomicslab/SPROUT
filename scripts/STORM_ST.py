@@ -33,7 +33,7 @@ st_exp = pd.read_csv(args.st_file,sep='\t',header=0,index_col = 0)
 meta_df = pd.read_csv(args.meta_file,sep='\t',header=0,index_col = 0).astype({"bio_celltype": str})
 exp = pd.read_csv(args.sc_file,sep='\t',header=0,index_col = 0, error_bad_lines=False)
 lr_df = pd.read_csv(args.lr_file,sep='\t',header=None )
-print('file loaded')
+print('File loaded.')
 
 if args.st_coord is not None:
     st_coord = pd.read_csv(args.st_coord,sep='\t',header=0, index_col = 0)
@@ -51,7 +51,7 @@ if not st_exp.columns[0].isupper() == exp.columns[0].isupper():
     st_exp.columns = map(lambda x: str(x).upper(), st_exp.columns)
     exp.columns = map(lambda x: str(x).upper(), exp.columns)
 if set(weight.columns).intersection(set(meta_df['bio_celltype'])) != len(set(weight.columns)):
-    print('Cell type in weight matrix is unequal to single-cell meta file')
+    print('Cell type in weight matrix is unequal to single-cell meta file.')
 
 def embedding(sparse_A, ans, path, verbose = True, left_range = 0, right_range = 30, steps = 30, dim = 2):
     aff = np.array(sparse_A, dtype = 'f')
@@ -89,11 +89,12 @@ def embedding(sparse_A, ans, path, verbose = True, left_range = 0, right_range =
                     best_in_shape = coord
             print(i,':',max_shape)
     pd.DataFrame(best_in_shape).to_csv(path + 'coord_best_in_shape.csv',index = False, header= False, sep = ',')
-    print('reached a correlation in shape at:', max_shape)
+    print('Reached a correlation in shape at:', max_shape)
     return best_in_shape
 
 print('Start to select single-cell aggregates.')
-print('Cell num per spot is: %d, mode as %s'%(args.num_per_spot,args.mode))
+print('Cell num per spot is: %d, mode as %s.'%(args.num_per_spot,args.mode))
+print('Selecting...')
 sc_imitator, picked_index_df = preprocessing.sc_agg(weight, st_exp, meta_df, exp, lr_df, args.num_per_spot, args.mode, path)
 print('Single-cell aggregates selection completed.')
 exp_T = sc_imitator.T
@@ -113,6 +114,6 @@ steps = 30
 # The number for sparsification repeats
 dim = 2
 # The percentage of edges to be preserved
-print('Start embedding')
+print('Start embedding.')
 coord = embedding(sparse_A, ans, path, left_range, right_range, steps, dim)
 print('Finished!')
