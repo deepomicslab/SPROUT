@@ -93,7 +93,7 @@ def embedding(sparse_A, ans, path, verbose = True, left_range = 0, right_range =
     return best_in_shape
 print('\n')
 print('Start to select single-cell aggregates...')
-print('- Cell num per spot is %d, mode as %s.'%(args.num_per_spot,args.mode))
+print('- Cell num per spot is %d, mode set as %s.'%(args.num_per_spot,args.mode))
 print('- Selecting...')
 sc_imitator, picked_index_df = preprocessing.sc_agg(weight, st_exp, meta_df, exp, lr_df, args.num_per_spot, args.mode, path)
 print('Single-cell aggregates selection completed.')
