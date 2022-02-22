@@ -71,6 +71,20 @@ embedding(sparse_A, path, left_range, right_range, steps, dim)
 * **Spatial coordinates**
   * `.tsv` file with spot as rows axis x and y as columns 
 
+### Reproducing The PDAC Analysis
+#### 1. Downloading the data
+The data we used in the paper is downloaded from [GSE111672](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE111672), the processed data is deposited in [Google drive](https://drive.google.com/file/d/1r4hiv9z0HgmnXNRyYHk7FMg69hhFL579/view?usp=sharing)
+```shell
+python ./STORM-main/scripts/STORM_ST.py -s spatial_exp.tsv -v spatial_decon.tsv -r sc_exp.tsv -m sc_meta.tsv -l ./STORM-main/LR/human_LR_pairs.txt
+file loaded
+Cell type in weight matrix is unequal to single-cell meta file.
+Start to select single-cell aggregates.
+Cell num per spot is: 10, mode as strict.
+19738 genes in spatial data, 19738 genes in single-cell data.
+14210 shared and expressed genes has been kept.
+
+```
+
 ## *de novo* reconstruction from the single-cell transcriptome
 ```shell
 python ./scripts/STORM_SC.py -r tpm.txt -l LR_pairs_add.txt -o /home/wanwang6/scratch/5.UMAP/1.spatial/1.data/2.HCC/
