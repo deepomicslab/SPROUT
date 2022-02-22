@@ -1,6 +1,5 @@
 # STORM
 The software implementation of the method in the paper [STORM: spectral sparsification helps restore the spatial structure at single-cell resolution](https://www.biorxiv.org/content/10.1101/2022.01.25.477389v1).
-
 A software package restores the spatial structure from single-cell transcriptome with spectral graph sparsification.
 
 # Pre-requirements
