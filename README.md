@@ -47,8 +47,12 @@ optional arguments:
 ```
 ### Parameters
 ```python
-embedding(sparse_A, path, left_range, right_range, steps, dim)
+embedding(sparse_A, path, verbose = True, left_range, right_range, steps, dim)
 ```
+* verbose : Boolean, default: True
+    True: save coordinate results of all parameters.
+    False: save only the best result.
+    
 * left_range : int, optional, default: 0
 
 * right_range : int, optional, default: 30
