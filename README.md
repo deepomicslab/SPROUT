@@ -50,8 +50,10 @@ optional arguments:
 embedding(sparse_A, path, verbose = True, left_range, right_range, steps, dim)
 ```
 * verbose : Boolean, default: True
+
     True: save coordinate results of all parameters.
-    False: save only the best result.
+    
+    False: only save the results with the highest shape correlation with the ST structure.
     
 * left_range : int, optional, default: 0
 
