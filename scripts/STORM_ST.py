@@ -116,5 +116,5 @@ steps = 30
 dim = 2
 # The percentage of edges to be preserved
 print('Start embedding...')
-coord = embedding(sparse_A, ans, path, left_range, right_range, steps, dim)
+coord = embedding(sparse_A, ans, path,verbose =True, left_range, right_range, steps, dim)
 print('Finished!')
