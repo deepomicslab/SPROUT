@@ -31,7 +31,7 @@ else:
 weight = pd.read_csv(args.w_file,sep='\t',header=0, index_col = 0)
 st_exp = pd.read_csv(args.st_file,sep='\t',header=0,index_col = 0)
 meta_df = pd.read_csv(args.meta_file,sep='\t',header=0,index_col = 0).astype({"bio_celltype": str})
-exp = pd.read_csv(args.sc_file,sep='\t',header=0,index_col = 0, error_bad_lines=False)
+exp = pd.read_csv(args.sc_file,sep='\t',header=0,index_col = 0)
 lr_df = pd.read_csv(args.lr_file,sep='\t',header=None )
 print('File loaded.')
 
