@@ -114,7 +114,7 @@ def sparsify_embedding(Q, N, out_dir, percent = 0.2, left_range = 0, right_range
     
 # ST   
 def pass_adj_st_to_sc(spatial_dis,picked_sc_meta):
-    spot_sc_num = picked_sc_meta.groupby(1).count()
+    spot_sc_num = picked_sc_meta.groupby(picked_sc_meta.columns[-1]).count()
     sc_spot_neighbor = np.empty((0,int(np.sum(spot_sc_num))))
     for i in range(spatial_dis.shape[0]):
         cell_num_i = spot_sc_num.iloc[i,0]
