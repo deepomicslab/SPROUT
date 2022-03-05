@@ -130,7 +130,6 @@ def dig_hole_spatial_info(st_coord, picked_sc_meta, r = 2):
     all_x = np.sort(list(set(st_coord.iloc[:,0])))
     unit_len = all_x[1] - all_x[0]
     # broadcast nonadjacency to sc from spatial
-    st_coord = st_coord[['x','y']]
     spatial_dis_mat = distance_matrix(st_coord,st_coord)
     spatial_dis_mat[spatial_dis_mat > r * unit_len ] = REALMIN
     # indicator
