@@ -1,4 +1,4 @@
-# STORM
+# SPROUT
 The software implementation of the method in 
 [STORM: spectral sparsification helps restore the spatial structure at single-cell resolution](https://www.biorxiv.org/content/10.1101/2022.01.25.477389v1).
 
