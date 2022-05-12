@@ -112,9 +112,11 @@ left_range = 0
 right_range = 30
 # The iteration number for each neighbor
 steps = 30
-# The number for sparsification repeats
+# The reconstruction dimension
 dim = 2
-# The percentage of edges to be preserved
+# Verbose
+verbose = True
+
 print('Start embedding...')
-coord = embedding(sparse_A, ans, path,verbose =True, left_range, right_range, steps, dim)
+coord = embedding(sparse_A, ans, path, verbose, left_range, right_range, steps, dim)
 print('Finished!')
