@@ -6,6 +6,8 @@ import umap
 from scipy.spatial import distance_matrix
 import optimizers
 import preprocessing
+import warnings
+warnings.filterwarnings("ignore")
 
 REALMIN = np.finfo(float).tiny
 parser = argparse.ArgumentParser()
