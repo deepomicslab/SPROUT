@@ -2,7 +2,7 @@
 The software implementation of the method in 
 [SPROUT: spectral sparsification helps restore the spatial structure at single-cell resolution](https://academic.oup.com/nargab/article/4/3/lqac069/6700709).
 
-A software package restores the spatial structure from single-cell transcriptome with spectral graph sparsification.
+A software package restores the spatial structure from single-cell transcriptome data with spectral graph sparsification.
 
 # Pre-requirements
 * python3, numpy, pandas, scipy
