@@ -1,6 +1,6 @@
 # SPROUT
 The software implementation of the method in 
-[STORM: spectral sparsification helps restore the spatial structure at single-cell resolution](https://www.biorxiv.org/content/10.1101/2022.01.25.477389v1).
+[SPROUT: spectral sparsification helps restore the spatial structure at single-cell resolution](https://academic.oup.com/nargab/article/4/3/lqac069/6700709).
 
 A software package restores the spatial structure from single-cell transcriptome with spectral graph sparsification.
 
@@ -79,6 +79,13 @@ embedding(sparse_A, path, verbose = True, left_range, right_range, steps, dim)
 * **Spatial coordinates**
   * `.tsv` file with spot as rows axis x and y as columns 
 
+* **Single-cell RNA-seq Count Data**
+  * `.tsv` file with cells as rows and genes as columns
+
+* **Single-cell RNA-seq Metadata**
+  * `.tsv` file with cells as rows and cell types as columns
+
+
 ### Reproducing The PDAC Analysis
 #### 1. Downloading the data
 The PDAC data we used in the paper is downloaded from [GSE111672](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE111672), the processed data is deposited in [Google drive](https://drive.google.com/file/d/1r4hiv9z0HgmnXNRyYHk7FMg69hhFL579/view?usp=sharing).
@@ -108,6 +115,15 @@ Single-cell aggregates selection completed.
 Start embedding...
 
 ```
+### Output files
+* **Selected single-cell profiels representing each spot**
+  * `sc_agg.txt`  file with spots as rows and genes as columns
+
+* **Metadata of the selected cells**
+  * `sc_agg_index.txt` Cell index, cell type, and the spot its belongs to
+ 
+* **Single-cell coordinates**
+  * `coord_best_in_shape.csv` file with cells as rows, axis x and y as columns 
 
 ## 2. *de novo* reconstruction from the single-cell transcriptome
 ```shell
