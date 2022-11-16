@@ -120,10 +120,10 @@ Start embedding...
   * `sc_agg.txt`  file with spots as rows and genes as columns
 
 * **Metadata of the selected cells**
-  * `sc_agg_index.txt` Cell index, cell type, and the spot its belongs to
+  * `sc_agg_index.txt`  file with cell as rows, cell type, and the spot its belongs to as columns 
  
 * **Single-cell coordinates**
-  * `coord_best_in_shape.csv` file with cells as rows, axis x and y as columns 
+  * `coord_best_in_shape.csv` file with cells as rows, coordinates as columns 
 
 ## 2. *de novo* reconstruction from the single-cell transcriptome
 ```shell
