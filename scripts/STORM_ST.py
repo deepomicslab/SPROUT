@@ -52,7 +52,7 @@ if not st_exp.columns[0].isupper() == exp.columns[0].isupper():
     print('The input of ST and SC files may originate from different species, please check the case of the gene name.')
     st_exp.columns = map(lambda x: str(x).upper(), st_exp.columns)
     exp.columns = map(lambda x: str(x).upper(), exp.columns)
-if set(weight.columns).intersection(set(meta_df['bio_celltype'])) != len(set(weight.columns)):
+if len(set(weight.columns).intersection(set(meta_df['bio_celltype']))) != len(set(weight.columns)):
     print('Cell type in weight matrix is unequal to single-cell meta file.')
 
 def embedding(sparse_A, ans, path, verbose = True, left_range = 0, right_range = 30, steps = 30, dim = 2):
