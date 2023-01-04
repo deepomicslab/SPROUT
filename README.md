@@ -12,7 +12,7 @@ A software package restores the spatial structure from single-cell transcriptome
 ```shell
 wget https://github.com/deepomicslab/STORM/archive/refs/heads/main.zip
 unzip main.zip
-cd STORM-main
+cd SPROUT-main
 python setup.py install
 ```
 # Usages
