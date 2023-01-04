@@ -18,7 +18,7 @@ python setup.py install
 # Usages
 ## 1. Reconstruction utilizing single-cell transcriptome coupled with spatial transcriptomics data
 ```shell
-python ./STORM-main/scripts/STORM_ST.py -s spatial_exp.tsv -v spatial_decon.tsv -r sc_exp.tsv -m sc_meta.tsv -l lr_pair.txt
+python ./SPROUT-main/scripts/STORM_ST.py -s spatial_exp.tsv -v spatial_decon.tsv -r sc_exp.tsv -m sc_meta.tsv -l lr_pair.txt
 ```
 ```
 usage: STORM_ST.py -s ST_FILE [-c ST_COORD] -v W_FILE -r SC_FILE -m META_FILE -l LR_FILE [-o OUT_DIR] [-p NUM_PER_SPOT] [-a MODE] [-h] 
@@ -96,7 +96,7 @@ The PDAC data we used in the paper is downloaded from [GSE111672](https://www.nc
   - sc_meta.tsv
 #### 2. Run the analysis
 ```shell
-python ./STORM-main/scripts/STORM_ST.py -s spatial_exp.tsv -v spatial_decon.tsv -r sc_exp.tsv -m sc_meta.tsv -l ./STORM-main/LR/human_LR_pairs.txt
+python ./SPROUT-main/scripts/STORM_ST.py -s spatial_exp.tsv -v spatial_decon.tsv -r sc_exp.tsv -m sc_meta.tsv -l ./SPROUT-main/LR/human_LR_pairs.txt
 ```
 ```console
 file loaded.
@@ -168,5 +168,5 @@ The heart dataset we used in the paper is downloaded from [Developmental_heart_f
   - all_cells_meta_data_filtered.tsv
 #### 2. Run the analysis
 ```shell
-python ./STORM-main/scripts/STORM_SC.py -r all_cells_count_matrix_filtered.tsv -l ./STORM-main/LR/human_LR_pairs.txt
+python ./SPROUT-main/scripts/STORM_SC.py -r all_cells_count_matrix_filtered.tsv -l ./SPROUT-main/LR/human_LR_pairs.txt
 ```
