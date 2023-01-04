@@ -10,7 +10,7 @@ A software package restores the spatial structure from single-cell transcriptome
 # Installation
 ## Installation from the source code
 ```shell
-wget https://github.com/deepomicslab/STORM/archive/refs/heads/main.zip
+wget https://github.com/deepomicslab/SPROUT/archive/refs/heads/main.zip
 unzip main.zip
 cd SPROUT-main
 python setup.py install
