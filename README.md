@@ -48,11 +48,13 @@ sc_coord = sprout_obj.spatial_recon(left_range = 0, right_range = 10, steps = 1,
 
 * **Output directory**
   * `save_path` the directory that stores the output, will be created if not exist.
+***
 ### Preprocessing procedure
 select cells from `sc_exp` for each spot
 ```python
 spot_cor,picked_index_df = sprout_obj.select_sc(num_per_spot = 10, mode = 'strict', max_rep = 1, repeat_penalty = 10)
 ```
+#### parameters
 *  num_per_spot: Estimated cell number per spot. Default is 10
 
 *  mode: The choice of either gather cells strictly from the same type (strict) or from all candidate cells (wild) in the candidate library. Default is strict.
@@ -62,8 +64,10 @@ spot_cor,picked_index_df = sprout_obj.select_sc(num_per_spot = 10, mode = 'stric
 *  repeat_penalty: When one cell has been picked for [THIS] many times, its probability to be picked again decreases by half.    
 
 ```python
-spatial_recon(left_range = 0, right_range = 10, steps = 1, dim = 2,max_dist = 1)
+sc_coord = spatial_recon(left_range = 0, right_range = 10, steps = 1, dim = 2,max_dist = 1)
+#### output
 ```  
+#### parameters
 * left_range : int, optional, default: 0
 
 * right_range : int, optional, default: 30
@@ -81,7 +85,7 @@ spatial_recon(left_range = 0, right_range = 10, steps = 1, dim = 2,max_dist = 1)
 * max_dist: float, default:1, recommand in range [0.5,1]. 
 
     The ratio of the distance between the cells to its spot center to the furthest distance.
-
+#### output
 
 ### Output files
 * **Selected single-cell profiels representing each spot**
