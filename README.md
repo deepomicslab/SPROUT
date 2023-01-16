@@ -7,7 +7,7 @@ A software package restores the spatial structure from single-cell transcriptome
 # Pre-requirements
 * python3, numpy, pandas, scipy
 * umap-learn, loess, 
-* tasklogger
+* tasklogger, random
 # Installation
 ## Installation from the source code
 ```shell
