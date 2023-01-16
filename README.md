@@ -49,15 +49,20 @@ sc_coord = sprout_obj.spatial_recon(left_range = 0, right_range = 10, steps = 1,
 * **Output directory**
   * `save_path` the directory that stores the output, will be created if not exist.
 ### Parameters
+* **Preprocessing procedure**
+  * select cells from `sc_exp` for each spot
+```python
+spot_cor,picked_index_df = sprout_obj.select_sc(num_per_spot = 10, mode = 'strict', max_rep = 1, repeat_penalty = 10)
+```
+* left_range : int, default: 0. The index range for neighbor number, the actual neighbor number is (i+1)*10.
+* right_range : int, default: 20. The index range for neighbor number, the actual neighbor number is (i+1)*10.
+* steps : int, default: 10. The number of repetitions for each neighbor parameter.
+* dim : int, default: 2. The embedding dimension of the reconstruction.
+* max_dist: float, default:1, recommand in range [0.5,1]. The ratio of the distance between the cells to its spot center to the furthest distance.
+        
 ```python
 spatial_recon(left_range = 0, right_range = 10, steps = 1, dim = 2,max_dist = 1)
-```
-* verbose : Boolean, default: True
-
-    True: save coordinate results of all parameters.
-    
-    False: only save the results with the highest shape correlation with the ST structure.
-    
+```  
 * left_range : int, optional, default: 0
 
 * right_range : int, optional, default: 30
@@ -72,6 +77,9 @@ spatial_recon(left_range = 0, right_range = 10, steps = 1, dim = 2,max_dist = 1)
 
     The embedding dimension of the reconstruction
     
+* max_dist: float, default:1, recommand in range [0.5,1]. 
+
+    The ratio of the distance between the cells to its spot center to the furthest distance.
 
 
 ### Output files
