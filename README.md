@@ -49,7 +49,7 @@ sc_coord = sprout_obj.spatial_recon(left_range = 0, right_range = 10, steps = 1,
 * **Output directory**
   * `save_path` the directory that stores the output, will be created if not exist.
 ***
-### Preprocessing procedure
+### Preprocessing Procedure
 select cells from `sc_exp` for each spot
 ```python
 spot_cor,picked_index_df = sprout_obj.select_sc(num_per_spot = 10, mode = 'strict', max_rep = 1, repeat_penalty = 10)
@@ -62,10 +62,12 @@ spot_cor,picked_index_df = sprout_obj.select_sc(num_per_spot = 10, mode = 'stric
 *  max_rep: Repeat time of the swap procedure.
 
 *  repeat_penalty: When one cell has been picked for [THIS] many times, its probability to be picked again decreases by half.    
-
+#### output
+* spot_cor: spot correlation result
+* picked_index_df: picked cells of each spot
+### Embedding Procedure
 ```python
 sc_coord = spatial_recon(left_range = 0, right_range = 10, steps = 1, dim = 2,max_dist = 1)
-#### output
 ```  
 #### parameters
 * left_range : int, optional, default: 0
@@ -86,7 +88,7 @@ sc_coord = spatial_recon(left_range = 0, right_range = 10, steps = 1, dim = 2,ma
 
     The ratio of the distance between the cells to its spot center to the furthest distance.
 #### output
-
+sc_coord: embedding of the affinity
 ### Output files
 * **Selected single-cell profiels representing each spot**
   * `sc_agg.txt`  file with spots as rows and genes as columns
