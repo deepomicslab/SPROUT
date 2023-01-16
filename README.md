@@ -21,7 +21,7 @@ python setup.py install
 from src import sprout
 sprout_obj = sprout.SPROUT(st_exp = st_exp, st_coord = st_coord, weight = st_decon, 
                            sc_exp = sc_exp, meta_df = sc_meta, cell_type_key = 'celltype',lr_df = lr_df, 
-                           verbose= 1, save_path = save_path)
+                           save_path = save_path)
 spot_cor,picked_index_df = sprout_obj.select_sc(num_per_spot = 10, mode = 'strict', max_rep = 1, repeat_penalty = 10)
 sc_coord = sprout_obj.spatial_recon(left_range = 0, right_range = 10, steps = 1, dim = 2,max_dist = 1)
 ```
@@ -46,8 +46,8 @@ sc_coord = sprout_obj.spatial_recon(left_range = 0, right_range = 10, steps = 1,
 * **Ligand and Receptor Data**
   * `lr_df` dataframe with ligand-receptor pairs as rows, ligand, receptor and its weight as columns
 
-* **Verbose parameter**
-  * `lr_df` dataframe with ligand-receptor pairs as rows, ligand, receptor and its weight as columns
+* **Output directory**
+  * `save_path` the directory that stores the output, will be created if not exist.
 ### Parameters
 ```python
 spatial_recon(left_range = 0, right_range = 10, steps = 1, dim = 2,max_dist = 1)
