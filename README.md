@@ -7,13 +7,13 @@ A software package restores the spatial structure from single-cell transcriptome
 # Pre-requirements
 * python3, numpy, pandas, scipy
 * umap-learn, loess, 
-* tasklogger,time
+* tasklogger
 # Installation
 ## Installation from the source code
 ```shell
-wget https://github.com/deepomicslab/SPROUT/archive/refs/heads/main.zip
-unzip main.zip
-cd SPROUT-main
+wget https://github.com/deepomicslab/SPROUT/archive/refs/heads/SPROUT_fast.zip
+unzip SPROUT_fast.zip
+cd SPROUT-SPROUT_fast
 python setup.py install
 ```
 # Usages
