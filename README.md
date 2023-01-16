@@ -90,12 +90,18 @@ sc_coord = spatial_recon(left_range = 0, right_range = 10, steps = 1, dim = 2,ma
     The ratio of the distance between the cells to its spot center to the furthest distance.
 #### output
 sc_coord: embedding of the affinity
+### Getting the Selected SC Expression Data
+```python
+sc_agg_exp = sc_exp.loc[sprout_obj.picked_index_df['sc_id']]
+sc_agg_exp = sc_agg_exp.reset_index()
+```
 ### Output files
 * **Selected single-cell profiels representing each spot**
   * `sc_agg.txt`  file with spots as rows and genes as columns
 
 * **Metadata of the selected cells**
-  * `sc_agg_index.txt`  file with cell as rows, cell type, and the spot its belongs to as columns 
+  * `sc_agg_meta.tsv`  file with chosen cell as rows, cell id in `sc_meta`,the spot its belongs to, cell type as columns 
  
 * **Single-cell coordinates**
-  * `coord_best_in_shape.csv` file with cells as rows, coordinates as columns 
+  * `raw_best_coord.csv` file with cells as rows, coordinates as columns. Generated with umap.
+  * `spot_centered_best_coord.tsv` file with cells as rows, coordinates as columns. Generated based on the umap result, shifted to the spatial coordinate system of `st_coord`.
