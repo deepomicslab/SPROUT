@@ -68,8 +68,7 @@ spot_cor,picked_index_df = sprout_obj.select_sc(num_per_spot = 10, mode = 'stric
 * repeat_penalty: When one cell has been picked for [THIS] many times, its probability to be picked again decreases by half.
 
     Recommanded to be near   (st_exp.shape[0]*num_per_spot/sc_exp.shape[0]) * 10
-    
-*       
+         
 #### output
 * spot_cor: spot correlation result
 * picked_index_df: picked cells of each spot
