@@ -79,11 +79,11 @@ sc_coord = spatial_recon(left_range = 0, right_range = 10, steps = 1, dim = 2,ma
 #### parameters
 * left_range : int, optional, default: 0
 
-* right_range : int, optional, default: 30
+* right_range : int, optional, default: 20
 
-    The index range for neighbor number, the actual neighbor number is (i+1)*15
+    The index range for neighbor number, the actual neighbor number is (i+1)*10
     
-* steps : int, optional, default: 30
+* steps : int, optional, default: 10
 
     The iteration number for each neighbor
 
