@@ -1,10 +1,10 @@
 from setuptools import setup
 from setuptools import find_packages
 
-setup( name = 'STORM',
-version = '1.0.0',
-description='STORM: A software package restores the spatial structure from single-cell transcriptome with spectral graph sparsification.',
-url='https://github.com/deepomicslab/STORM',
+setup( name = 'SPROUT',
+version = '2.0.0',
+description='SPROUT: spectral sparsification helps restore the spatial structure at single-cell resolution.',
+url='https://github.com/deepomicslab/SPROUT/',
 author='Jingwan WANG',
 author_email='wanwang6-c@my.cityu.edu.hk',
 license='MIT',
