@@ -25,6 +25,8 @@ sprout_obj = sprout.SPROUT(st_exp = st_exp, st_coord = st_coord, weight = st_dec
                            save_path = save_path)
 spot_cor,picked_index_df = sprout_obj.select_sc(num_per_spot = 10, mode = 'strict', max_rep = 1, repeat_penalty = 10)
 sc_coord = sprout_obj.spatial_recon(left_range = 0, right_range = 10, steps = 1, dim = 2,max_dist = 1)
+sc_agg_exp = sc_exp.loc[sprout_obj.picked_index_df['sc_id']]
+sc_agg_exp = sc_agg_exp.reset_index()
 ```
 ### Input file format
 * **Spatial Transcriptomics (ST) Count Data**
@@ -50,7 +52,7 @@ sc_coord = sprout_obj.spatial_recon(left_range = 0, right_range = 10, steps = 1,
 * **Output directory**
   * `save_path` the directory that stores the output, will be created if not exist.
 ***
-### Preprocessing Procedure
+### 1. Preprocessing Procedure
 select cells from `sc_exp` for each spot
 ```python
 spot_cor,picked_index_df = sprout_obj.select_sc(num_per_spot = 10, mode = 'strict', max_rep = 1, repeat_penalty = 10)
@@ -66,7 +68,7 @@ spot_cor,picked_index_df = sprout_obj.select_sc(num_per_spot = 10, mode = 'stric
 #### output
 * spot_cor: spot correlation result
 * picked_index_df: picked cells of each spot
-### Embedding Procedure
+### 2. Embedding Procedure
 ```python
 sc_coord = spatial_recon(left_range = 0, right_range = 10, steps = 1, dim = 2,max_dist = 1)
 ```  
@@ -90,15 +92,12 @@ sc_coord = spatial_recon(left_range = 0, right_range = 10, steps = 1, dim = 2,ma
     The ratio of the distance between the cells to its spot center to the furthest distance.
 #### output
 sc_coord: embedding of the affinity
-### Getting the Selected SC Expression Data
+### 3. Getting the Selected SC Expression Data
 ```python
 sc_agg_exp = sc_exp.loc[sprout_obj.picked_index_df['sc_id']]
 sc_agg_exp = sc_agg_exp.reset_index()
 ```
 ### Output files
-* **Selected single-cell profiels representing each spot**
-  * `sc_agg.txt`  file with spots as rows and genes as columns
-
 * **Metadata of the selected cells**
   * `sc_agg_meta.tsv`  file with chosen cell as rows, cell id in `sc_meta`,the spot its belongs to, cell type as columns 
  
