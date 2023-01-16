@@ -105,4 +105,5 @@ sc_agg_exp = sc_agg_exp.reset_index()
 * **Single-cell coordinates**
   * `raw_best_coord.csv` file with cells as rows, coordinates as columns. Generated with umap.
   * `spot_centered_best_coord.tsv` file with cells as rows, coordinates as columns. 
+  
                                    Generated based on the umap result, shifted to the spatial coordinate system of `st_coord`.
