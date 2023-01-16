@@ -52,6 +52,7 @@ sc_agg_exp = sc_agg_exp.reset_index()
 * **Output directory**
   * `save_path` the directory that stores the output, will be created if not exist.
 ***
+## Detailed info
 ### 1. Preprocessing Procedure
 select cells from `sc_exp` for each spot
 ```python
