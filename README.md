@@ -17,37 +17,15 @@ python setup.py install
 ```
 # Usages
 ## 1. Reconstruction utilizing single-cell transcriptome coupled with spatial transcriptomics data
-```shell
-python ./SPROUT-main/scripts/STORM_ST.py -s spatial_exp.tsv -v spatial_decon.tsv -r sc_exp.tsv -m sc_meta.tsv -l lr_pair.txt
-```
-```
-usage: STORM_ST.py -s ST_FILE [-c ST_COORD] -v W_FILE -r SC_FILE -m META_FILE -l LR_FILE [-o OUT_DIR] [-p NUM_PER_SPOT] [-a MODE] [-h] 
-
-optional arguments:
-  -s ST_FILE, --st-file ST_FILE
-                        Spatial transcriptomics data
-  -c ST_COORD, --st-coordinate ST_COORD
-                        Spatial coordinates of the spatial transcriptomics data
-  -v W_FILE, --weight-file W_FILE
-                        Deconvoluted ST data
-  -r SC_FILE, --sc-file SC_FILE
-                        Single-cell candidate library of the corresponding ST tissue
-  -m META_FILE, --meta-file META_FILE
-                        Cell-type annotation of the single-cell candidate library
-  -l LR_FILE, --lr-file LR_FILE
-                        Ligand-receptor pair data
-  -o OUT_DIR, --out-dir OUT_DIR
-                        Output file path， default is the current working dir
-  -p NUM_PER_SPOT, --cell-num-per-spot NUM_PER_SPOT
-                        Estimated cell number per spot. Default is 10
-  -a MODE, --selection_mode MODE
-                        The choice of either gather cells primarily from the same type (strict) 
-                        or from all cells (wild) in the candidate library
-  -h, --help            show this help message and exit                      
-```
+from src import sprout
+sprout_obj = sprout.SPROUT(st_exp = st_exp, st_coord = st_coord, weight = st_decon, 
+        sc_exp = sc_exp, meta_df = sc_meta, cell_type_key = 'celltype',lr_df = lr_df, verbose= 1,
+        save_path = save_path)
+spot_cor,picked_index_df = sprout_obj.select_sc(num_per_spot = 10, mode = 'strict', max_rep = 1, repeat_penalty = 10)
+sc_coord = sprout_obj.spatial_recon(left_range = 0, right_range = 10, steps = 1, dim = 2,max_dist = 1)
 ### Parameters
 ```python
-embedding(sparse_A, path, verbose = True, left_range, right_range, steps, dim)
+spatial_recon(left_range = 0, right_range = 10, steps = 1, dim = 2,max_dist = 1)
 ```
 * verbose : Boolean, default: True
 
