@@ -10,6 +10,6 @@ author_email='wanwang6-c@my.cityu.edu.hk',
 license='MIT',
 packages=find_packages(),
 install_requires=['umap-learn',
-'loess','tasklogger','time',
+'loess','tasklogger',
 'random2','scipy']
 )
