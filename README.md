@@ -54,12 +54,14 @@ sc_coord = sprout_obj.spatial_recon(left_range = 0, right_range = 10, steps = 1,
 ```python
 spot_cor,picked_index_df = sprout_obj.select_sc(num_per_spot = 10, mode = 'strict', max_rep = 1, repeat_penalty = 10)
 ```
-* left_range : int, default: 0. The index range for neighbor number, the actual neighbor number is (i+1)*10.
-* right_range : int, default: 20. The index range for neighbor number, the actual neighbor number is (i+1)*10.
-* steps : int, default: 10. The number of repetitions for each neighbor parameter.
-* dim : int, default: 2. The embedding dimension of the reconstruction.
-* max_dist: float, default:1, recommand in range [0.5,1]. The ratio of the distance between the cells to its spot center to the furthest distance.
-        
+*  num_per_spot: Estimated cell number per spot. Default is 10
+
+*  mode: The choice of either gather cells strictly from the same type (strict) or from all candidate cells (wild) in the candidate library. Default is strict.
+
+*  max_rep: Repeat time of the swap procedure.
+
+*  repeat_penalty: When one cell has been picked for [THIS] many times, its probability to be picked again decreases by half.    
+
 ```python
 spatial_recon(left_range = 0, right_range = 10, steps = 1, dim = 2,max_dist = 1)
 ```  
