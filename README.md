@@ -20,11 +20,34 @@ python setup.py install
 ```python
 from src import sprout
 sprout_obj = sprout.SPROUT(st_exp = st_exp, st_coord = st_coord, weight = st_decon, 
-        sc_exp = sc_exp, meta_df = sc_meta, cell_type_key = 'celltype',lr_df = lr_df, verbose= 1,
-        save_path = save_path)
+                           sc_exp = sc_exp, meta_df = sc_meta, cell_type_key = 'celltype',lr_df = lr_df, 
+                           verbose= 1, save_path = save_path)
 spot_cor,picked_index_df = sprout_obj.select_sc(num_per_spot = 10, mode = 'strict', max_rep = 1, repeat_penalty = 10)
 sc_coord = sprout_obj.spatial_recon(left_range = 0, right_range = 10, steps = 1, dim = 2,max_dist = 1)
 ```
+### Input file format
+* **Spatial Transcriptomics (ST) Count Data**
+  * `st_exp` dataframe with spots as rows and genes as columns
+ 
+* **Spatial coordinates**
+  * `st_coord` dataframe with spot as rows, axis x and y as columns 
+
+* **Cell-type deconvoluted spatial matrix**
+  * `st_decon` dataframe with spot as rows and cell-type as columns
+
+
+* **Single-cell RNA-seq Count Data**
+  * `sc_exp` dataframe with cells as rows and genes as columns
+
+* **Single-cell RNA-seq Metadata**
+  * `sc_meta` dataframe with cells as rows and cell types as columns
+  * `cell_type_key` column name of the celltype identity in `sc_meta`
+
+* **Ligand and Receptor Data**
+  * `lr_df` dataframe with ligand-receptor pairs as rows, ligand, receptor and its weight as columns
+
+* **Verbose parameter**
+  * `lr_df` dataframe with ligand-receptor pairs as rows, ligand, receptor and its weight as columns
 ### Parameters
 ```python
 spatial_recon(left_range = 0, right_range = 10, steps = 1, dim = 2,max_dist = 1)
@@ -49,21 +72,6 @@ spatial_recon(left_range = 0, right_range = 10, steps = 1, dim = 2,max_dist = 1)
 
     The embedding dimension of the reconstruction
     
-### Input file format
-* **Spatial Transcriptomics (ST) Count Data**
-  * `.tsv` file with spots as rows and genes as columns
-
-* **Cell-type deconvoluted spatial matrix**
-  * `.tsv` file with spot as rows and cell-type as columns
- 
-* **Spatial coordinates**
-  * `.tsv` file with spot as rows axis x and y as columns 
-
-* **Single-cell RNA-seq Count Data**
-  * `.tsv` file with cells as rows and genes as columns
-
-* **Single-cell RNA-seq Metadata**
-  * `.tsv` file with cells as rows and cell types as columns
 
 
 ### Output files
