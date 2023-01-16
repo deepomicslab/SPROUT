@@ -17,7 +17,7 @@ cd SPROUT-SPROUT_fast
 python setup.py install
 ```
 # Usages
-## 1. Reconstruction utilizing single-cell transcriptome coupled with spatial transcriptomics data
+## Reconstruction utilizing single-cell transcriptome coupled with spatial transcriptomics data
 ```python
 from src import sprout
 sprout_obj = sprout.SPROUT(st_exp = st_exp, st_coord = st_coord, weight = st_decon, 
