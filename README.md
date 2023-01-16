@@ -48,9 +48,8 @@ sc_coord = sprout_obj.spatial_recon(left_range = 0, right_range = 10, steps = 1,
 
 * **Output directory**
   * `save_path` the directory that stores the output, will be created if not exist.
-### Parameters
-* **Preprocessing procedure**
-  * select cells from `sc_exp` for each spot
+### Preprocessing procedure
+select cells from `sc_exp` for each spot
 ```python
 spot_cor,picked_index_df = sprout_obj.select_sc(num_per_spot = 10, mode = 'strict', max_rep = 1, repeat_penalty = 10)
 ```
