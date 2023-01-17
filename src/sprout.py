@@ -105,12 +105,12 @@ class SPROUT:
         return cor_res,picked_index_df   
     
     def affinity_sparse(self, chunk_size = 12):
-        new_st_coord, sc_dis_mat, ans = utils.sc_adj_cal(self.st_coord, self.picked_index_df, alpha = 0.01, chunk_size = chunk_size)
+        new_st_coord, sc_dis_mat, ans = optimizers.sc_adj_cal(self.st_coord, self.picked_index_df, alpha = 0.01, chunk_size = chunk_size)
         # eliminate neg
         adata = self.sc_exp.sub(self.sc_exp.min(axis = 1), axis=0)
         adata = adata.loc[self.picked_index_df['sc_id']]
         tasklogger.log_start("Affinity")
-        sparse_A = utils.chunk_cal_aff(adata, sc_dis_mat, self.lr_df)
+        sparse_A = optimizers.chunk_cal_aff(adata, sc_dis_mat, self.lr_df)
         tasklogger.log_complete("Affinity")
         sparse_A[sparse_A!=0] = sparse_A[sparse_A!=0] - 0.1
         sparse_A = sparse_A + np.ones(sparse_A.shape) * 0.1
