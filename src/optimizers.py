@@ -130,7 +130,7 @@ def embedding(sparse_A, ans, path, verbose = False, left_range = 0, right_range 
             for j in range(steps):
                 coord = umap.UMAP(n_components=dim, metric = "precomputed", n_neighbors=(i+1)*10, random_state = 100*j+3).fit_transform(aff)
                 coord = np.array(coord)
-                cor = coord_eva(coord, ans, chunk_size = 12)
+                cor = coord_eva(coord, ans, i, chunk_size = 12)
                 if cor > max_shape:
                     max_shape = cor
                     best_in_shape = coord
