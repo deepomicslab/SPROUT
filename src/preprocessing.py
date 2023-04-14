@@ -58,7 +58,7 @@ def data_clean(st_exp, sc_exp):
     filtered_sc = sc_exp.loc[:,(sc_exp != 0).any(axis=0)]
     st_gene = set(filtered_st.columns)
     sc_gene = set(filtered_sc.columns)
-    shared_genes = st_gene.intersection(sc_gene)
+    shared_genes = list(st_gene.intersection(sc_gene))
     filtered_st1 = filtered_st.loc[:,shared_genes]
     filtered_sc1 = filtered_sc.loc[:,shared_genes]
     return filtered_st1, filtered_sc1, 
