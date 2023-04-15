@@ -51,9 +51,9 @@ def check_decon_type(weight, meta_df, cell_type_key):
             f'Cell type in weight matrix is different from single-cell meta file.')
 
 def check_spots_match(weight, st_exp, st_coord):
-    if weight.index != st_exp.index:
+    if weight.index.tolist() != st_exp.index.tolist():
         raise ValueError(
             f'Spot index in weight matrix is different from ST expression\'s.')
-    if st_coord.index != st_exp.index:
+    if st_coord.index.tolist() != st_exp.index.tolist():
         raise ValueError(
             f'Spot index in ST coordinates is different from ST expression\'s.')
