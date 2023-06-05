@@ -11,6 +11,7 @@ def id_to_idx(trans_id_idx,cell_id):
     return list(trans_id_idx.loc[cell_id][0])
 
 def randomize(mat_orig):
+    np.random.seed(1234)
     [m,n] = mat_orig.shape
     mat = mat_orig.copy()
     # m - spot number
@@ -121,7 +122,7 @@ def init_solution(cell_type_num, spot_idx, csr_st_exp, csr_sc_exp, meta_df, tran
     sc_index = np.array(meta_df.index)
     meta_df = np.array(meta_df)
     picked_time = pd.DataFrame(np.zeros(len(sc_index)), index = sc_index)
-    pd.DataFrame(columns = ['spot','time_cost','cor']).to_csv(f'{save_path}/prep_init.log',sep = ',',header=False,mode='a',index=True)
+    pd.DataFrame(columns = ['spot','time_cost','cor']).to_csv(f'{save_path}/prep_init.log',sep = ',',header=True,mode='a',index=True)
     for spot_name in spot_idx:
         last = time.time()
         spot_i += 1
@@ -173,7 +174,7 @@ def swap_solution(csr_st_exp, csr_sc_exp, picked_index, sc_meta, key, picked_tim
         sc_meta_dict[tp] = dict.fromkeys(idx,0)
     mutual_spots = list(picked_index.keys())
     spot_idx = list(np.array_split(mutual_spots, all_proces_N)[process_n])
-    pd.DataFrame(columns = ['spot','time_cost','cor']).to_csv(f'{save_path}/prep_swap.log',sep = ',',header=False,mode='a',index=True)
+    pd.DataFrame(columns = ['spot','time_cost','cor']).to_csv(f'{save_path}/prep_swap.log',sep = ',',header=True,mode='a',index=True)
     # Start swapping
     spot_i = -1
     for spot in spot_idx:
